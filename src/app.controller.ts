@@ -6,11 +6,6 @@ import { GetClassLinkDto } from './get-class-link.dto';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
-
   @Get('/:classId')
   getCurrentClassMeetLink(@Param() params: GetClassLinkDto): string {
     return this.appService.getCurrentClassMeetLink(params.classId);

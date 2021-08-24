@@ -1644,6 +1644,11 @@ class-scheduler@^1.2.1:
   resolved "https://registry.yarnpkg.com/class-scheduler/-/class-scheduler-1.2.1.tgz#3ece27d6ff67a6b4b1218fdd3784a525172bc94e"
   integrity sha512-JW561HzZcaP01/bsIO5y+NaD/KgL1oto2hVzDX3j2dBfSTnI1qpjegHQBPlXenzF1D42kV/1cGjfpit0njeNhw==
 
+class-transformer@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.4.0.tgz#b52144117b423c516afb44cc1c76dbad31c2165b"
+  integrity sha512-ETWD/H2TbWbKEi7m9N4Km5+cw1hNcqJSxlSYhsLsNjQzWWiZIYA1zafxpK9PwVfaZ6AqR5rrjPVUBGESm5tQUA==
+
 class-validator@^0.13.1:
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/class-validator/-/class-validator-0.13.1.tgz#381b2001ee6b9e05afd133671fbdf760da7dec67"

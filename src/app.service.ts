@@ -1,22 +1,21 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { ClassIds } from './app.repository';
+import { Schedule } from 'class-scheduler';
+import { Injectable } from '@nestjs/common';
+import * as calendars from './db/calendars';
+import { ClassIds } from './app.entity';
+import { meetLinks } from './db/cse_a';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  private singletons: { [key: string]: Schedule } = {};
+
+  constructor() {
+    for (const [className, calendar] of Object.entries(calendars)) {
+      this.singletons[className] = new Schedule(calendar);
+    }
   }
 
   getCurrentClassMeetLink(classId: ClassIds): string {
-    // if (!Object.values(ClassIds).includes(classId)) {
-    //   console.log(`ClassId: ${JSON.stringify(classId)} not found`);
-    //   throw new NotFoundException({
-    //     statusCode: 404,
-    //     message: 'Class not found',
-    //     extendedMessage:
-    //       'Add you class by opening a PR: https://github.com/KrishnaMoorthy12/rendezvous',
-    //   });
-    // }
-    return classId;
+    const currClass = this.singletons[classId].getCurrentClass();
+    return meetLinks[currClass];
   }
 }
