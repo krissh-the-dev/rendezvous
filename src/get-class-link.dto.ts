@@ -1,5 +1,5 @@
 import { IsEnum } from 'class-validator';
-import { ClassIds } from './app.entity';
+import { ClassIds } from './classes_list';
 
 export class GetClassLinkDto {
   @IsEnum(ClassIds, {
