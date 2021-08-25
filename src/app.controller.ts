@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Redirect } from '@nestjs/common';
 import { AppService } from './app.service';
 import { GetClassLinkDto } from './get-class-link.dto';
 
@@ -7,7 +7,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('/:classId')
-  getCurrentClassMeetLink(@Param() params: GetClassLinkDto): string {
-    return this.appService.getCurrentClassMeetLink(params.classId);
+  @Redirect('https://meet.google.com', 302)
+  getCurrentClassMeetLink(@Param() params: GetClassLinkDto) {
+    return { url: this.appService.getCurrentClassMeetLink(params.classId) };
   }
 }
