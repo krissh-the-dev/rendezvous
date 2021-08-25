@@ -1,3 +1,3 @@
 export type ClassLinks<T extends string> = {
-  [key in T]: string;
+  [key in T]?: string;
 };

@@ -18,4 +18,8 @@ export class AppService {
     const currClass = this.singletons[classId].getCurrentClass();
     return meetLinks[classId][currClass];
   }
+
+  getCurrentClassName(classId: ClassIds): string {
+    return this.singletons[classId].getCurrentClass();
+  }
 }
