@@ -1,6 +1,6 @@
-import { Controller, Get, Param, Redirect } from '@nestjs/common';
+import { Controller, Get, Param, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { AppService } from './app.service';
-import { ClassIds } from './classes_list';
 import { GetClassLinkDto } from './get-class-link.dto';
 
 @Controller()
@@ -8,17 +8,18 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('/:classId')
-  @Redirect('https://meet.google.com', 302)
-  getCurrentClassMeetLink(@Param() params: GetClassLinkDto) {
+  getCurrentClassMeetLink(
+    @Param() params: GetClassLinkDto,
+    @Res() res: Response,
+  ) {
     const link = this.appService.getCurrentClassMeetLink(params.classId);
-    if (!link) return { url: `/noLink/${params.classId}` };
-    return { url: link };
-  }
 
-  @Get('/noLink/:classId')
-  classLinkNotFound(@Param('classId') classId: ClassIds) {
-    return `No permanent links found for ${this.appService.getCurrentClassName(
-      classId,
-    )}`;
+    if (!link)
+      return res.send(
+        `No permanent links found for ${this.appService.getCurrentClassName(
+          params.classId,
+        )}`,
+      );
+    return res.redirect(link);
   }
 }
