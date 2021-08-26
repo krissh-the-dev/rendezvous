@@ -1,7 +1,7 @@
-import { Schedule } from 'class-scheduler';
 import { Injectable } from '@nestjs/common';
-import * as calendars from './db/calendars';
+import { Schedule } from 'class-scheduler';
 import { ClassIds } from './classes_list';
+import * as calendars from './db/calendars';
 import * as meetLinks from './db/meetLinks';
 
 @Injectable()
