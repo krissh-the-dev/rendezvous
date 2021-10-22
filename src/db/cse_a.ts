@@ -63,7 +63,7 @@ export const calendar: Calendar = [
       { start: { hour: 9, minute: 10 }, end: { hour: 12, minute: 0 } },
       { start: { hour: 13, minute: 0 }, end: { hour: 16, minute: 40 } },
     ],
-    classes: [classes.SDT, classes.SL],
+    classes: [classes.CCL, classes.SL],
   },
   {
     day: 'Thursday',
@@ -73,7 +73,7 @@ export const calendar: Calendar = [
       { start: { hour: 12, minute: 10 }, end: { hour: 13, minute: 0 } },
       { start: { hour: 13, minute: 50 }, end: { hour: 16, minute: 40 } },
     ],
-    classes: [classes.PL, classes.CNS, classes.OE2, classes.CCL],
+    classes: [classes.PL, classes.CNS, classes.OE2, classes.SDT],
   },
   {
     day: 'Friday',
